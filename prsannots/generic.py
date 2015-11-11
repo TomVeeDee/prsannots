@@ -7,7 +7,8 @@ import os
 from xml.dom import minidom
 from StringIO import StringIO
 import hashlib
-import pyPdf
+import PyPDF2
+from prsannots.misc import u_raw_input, u_print, u_argv
 from pagetext import PageText, get_layouts, NoSubstringError, MultipleSubstringError
 from pdfannotation import highlight_annotation, text_annotation, add_annotation
 from pdfcontent import pdf_add_content, svg_to_pdf_content
@@ -92,7 +93,7 @@ class Book(object):
     @property
     def pdf(self):
         """A pyPdf.PdfFileReader instance of the PDF file."""
-        return pyPdf.PdfFileReader(open(os.path.join(self.reader.path, self.file), 'rb'))
+        return PyPDF2.PdfFileReader(open(os.path.join(self.reader.path, self.file), 'rb'),strict=False)
     
     def pdf_layout(self, page):
         """Get a pdfminer.LTPage object for page."""
@@ -125,7 +126,7 @@ class Book(object):
         if dice_map is None:
             dice_map = OneToOneMap(len(self.pdf.pages))
         
-        outpdf = pyPdf.PdfFileWriter()
+        outpdf = PyPDF2.PdfFileWriter()
         j = k = 0
         for i, page in enumerate(pdf.pages):
             while j < len(dice_map) and dice_map[j][0] == i:

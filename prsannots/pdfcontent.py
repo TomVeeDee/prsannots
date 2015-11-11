@@ -3,8 +3,8 @@
 # This file is part of prsannots and is distributed under the terms of
 # the LGPL license.  See the file COPYING for full details.
 
-from pyPdf.pdf import ContentStream
-from pyPdf.generic import ArrayObject, NameObject
+from PyPDF2.pdf import ContentStream
+from PyPDF2.generic import ArrayObject, NameObject
 
 class StupidSVGInterpreterError(Exception):
     pass

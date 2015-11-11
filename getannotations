@@ -27,12 +27,13 @@ highlights, and highlights with text notes are supported.
 
 import os
 import sys
-import pyPdf
+import PyPDF2
 from prsannots.prst1 import Reader
 from prsannots.misc import u_raw_input, u_print, u_argv
 
 
 def select_book(books):
+    sys.setrecursionlimit(10000)
     u_print("Please select which book to get:")
     for i, book in enumerate(books):
         title = book.title or book.file.split('/')[-1]

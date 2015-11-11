@@ -4,7 +4,7 @@
 # the LGPL license.  See the file COPYING for full details.
 
 from datetime import datetime
-from pyPdf.generic import *
+from PyPDF2.generic import *
 
 YELLOW = [0.95, 0.9, 0.2]
 
