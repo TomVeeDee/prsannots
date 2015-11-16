@@ -8,7 +8,6 @@ from xml.dom import minidom
 from StringIO import StringIO
 import hashlib
 import PyPDF2
-from prsannots.misc import u_raw_input, u_print, u_argv
 from pagetext import PageText, get_layouts, NoSubstringError, MultipleSubstringError
 from pdfannotation import highlight_annotation, text_annotation, add_annotation
 from pdfcontent import pdf_add_content, svg_to_pdf_content
